@@ -8,7 +8,7 @@ attributes:
 components:
   - name: tools
     container:
-      image: quay.io/devspaces/ide:next   # base IDE image (includes VS Code/Theia)
+      image: quay.io/devspaces/udi-rhel9:latest   # base IDE image (includes VS Code/Theia)
       memoryLimit: 2Gi
 projects:
   - name: sample-camel
