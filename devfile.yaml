@@ -1,13 +1,26 @@
 schemaVersion: 2.2.2
 metadata:
   name: devspace-developer1
+attributes:
+  vscode:
+    extensions:
+      - redhat.vscode-kaoto   # Install Kaoto GUI extension
 components:
   - name: tools
     container:
-      image: quay.io/devspaces/ide:next # or a Camel/Java image if needed
+      image: quay.io/devspaces/ide:next   # base IDE image (includes VS Code/Theia)
       memoryLimit: 2Gi
-  - name: kaoto-extension
-    cheEditor:
-      # VS Code Kaoto extension ID
-      extensions:
-        - redhat.vscode-kaoto
+projects:
+  - name: sample-camel
+    source:
+      type: git
+      location: "https://github.com/manfredmuth/kaoto-poc.git"
+commands:
+  - id: open-kaoto-route
+    exec:
+      component: tools
+      commandLine: "code /projects/sample-camel/routes/simple.camel.yaml"
+      workingDir: /projects
+      group:
+        kind: build
+        isDefault: true
