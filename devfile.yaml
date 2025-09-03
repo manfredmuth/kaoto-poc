@@ -12,9 +12,9 @@ components:
       memoryLimit: 2Gi
 projects:
   - name: sample-camel
-    source:
-      type: git
-      location: "https://github.com/manfredmuth/kaoto-poc.git"
+    git:
+      remotes:
+        origin: "https://github.com/manfredmuth/kaoto-poc.git"
 commands:
   - id: open-kaoto-route
     exec:
