@@ -1,0 +1,13 @@
+schemaVersion: 2.2.2
+metadata:
+  name: devspace-developer1
+components:
+  - name: tools
+    container:
+      image: quay.io/devspaces/ide:next # or a Camel/Java image if needed
+      memoryLimit: 2Gi
+  - name: kaoto-extension
+    cheEditor:
+      # VS Code Kaoto extension ID
+      extensions:
+        - redhat.vscode-kaoto
