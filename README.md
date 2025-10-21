@@ -2,7 +2,7 @@
 
 This example initially used developer workspaces to show how easy you can get kaoto VSCode extensions up and running by using OpenShift DevSpaces.
 
-- [Red Hat Developer sandbox](https://developers.redhat.com/products/openshift-dev-spaces/overview)
+- [Red Hat Developer sandbox](https://developers.redhat.com/products/openshift-dev-spaces/overview){:target="_blank"}
 - Once you started a workspace you want to use the [GIT repo for kaoto](https://github.com/manfredmuth/kaoto-poc)
 
 ![New workspace git repo](./images/new_workspace_git.png)
