@@ -20,3 +20,11 @@ commands:
       group:
         kind: build
         isDefault: true
+  - id: post-start-install-extensions
+    exec:
+      label: "Install Apache Camel and Kaoto extensions"
+      component: vscode
+      commandLine: >
+        code --install-extension redhat.apache-camel-extension-pack &&
+        code --install-extension redhat.vscode-kaoto
+      workingDir: /projects
