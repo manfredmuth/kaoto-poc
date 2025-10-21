@@ -147,8 +147,7 @@
             id: to-1474
             uri: paho-mqtt5:DB/JSON
             parameters:
-              brokerUrl: "{{broker.url:ssl://amq-ssl-broker-all-0-svc-rte-amq7-broker-cluster\
-                .apps.ocp4.jnyilimb.eu:443}}"
+              brokerUrl: "{{broker.url:ssl://amq-ssl-broker.public_domain:443}}"
               httpsHostnameVerificationEnabled: false
               password: "{{broker.password:P@ssw0rd}}"
               userName: "{{broker.user:postgresql-to-mqtt-and-file}}"

@@ -20,11 +20,13 @@ commands:
         code --install-extension redhat.apache-camel-extension-pack &&
         code --install-extension redhat.vscode-kaoto
       workingDir: /projects
-  - id: open-kaoto-route
-    exec:
-      component: tools
-      commandLine: "code /projects/sample-camel/simple.camel.yaml"
-      workingDir: /projects
-      group:
-        kind: build
-        isDefault: true
+ # The autostart does not work when the extensions are to be installed
+ # 
+ # - id: open-kaoto-route
+ #   exec:
+ #     component: tools
+ #     commandLine: "code /projects/sample-camel/simple.camel.yaml"
+ #     workingDir: /projects
+ #     group:
+ #       kind: build
+ #       isDefault: true

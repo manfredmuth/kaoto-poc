@@ -1,4 +1,5 @@
 {
+    "_comment": "this is not used as we address it in the devfile",
     "recommendations": [
         "redhat.apache-camel-extension-pack",
         "redhat.vscode-kaoto"

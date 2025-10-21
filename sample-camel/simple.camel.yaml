@@ -1,12 +1,6 @@
 # A minimal Apache Camel integration in YAML DSL
-apiVersion: camel.apache.org/v1
-kind: Integration
-metadata:
-  name: simple-route
-spec:
-  flows:
-    - from:
-        uri: "timer:tick?period=5000"  # triggers every 5 seconds
-        steps:
-          - log:
-              message: "Hello from Camel Kaoto!"
+- from:
+    uri: "timer:tick?period=5000"
+    steps:
+      - log:
+          message: "Hello from Kaoto!"
