@@ -24,3 +24,4 @@ attributes:
   vscode:
     extensions:
       - redhat.vscode-kaoto   # Install Kaoto GUI extension
+      - redhat.apache-camel-extension-pack # Camel extension
