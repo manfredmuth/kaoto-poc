@@ -4,6 +4,7 @@ metadata:
 components:
   - name: tools
     container:
+      # This can be replaced with an image which contains jBang see src/README.md
       image: quay.io/devspaces/udi-rhel9:latest   # base IDE image (includes VS Code/Theia)
       memoryLimit: 2Gi
 projects:
