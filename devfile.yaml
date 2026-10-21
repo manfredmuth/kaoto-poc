@@ -4,23 +4,45 @@ metadata:
 components:
   - name: tools
     container:
-      # This can be replaced with an image which contains jBang see src/README.md
-      image: quay.io/devspaces/udi-rhel9:latest   # base IDE image (includes VS Code/Theia)
-      memoryLimit: 2Gi
+      image: quay.io/devspaces/udi-rhel9:latest
+      memoryLimit: 4Gi
 projects:
   - name: sample-camel
     git:
       remotes:
         origin: "https://github.com/manfredmuth/kaoto-poc.git"
 commands:
+  - id: install-jbang
+    exec:
+      component: tools
+      workingDir: /projects
+      commandLine: |
+        set -eu
+        if ! command -v jbang >/dev/null 2>&1; then
+          curl -Ls https://sh.jbang.dev | bash -s - app setup
+        fi
+        export PATH="${HOME}/.jbang/bin:${PATH}"
+        grep -q '.jbang/bin' "${HOME}/.bashrc" || echo 'export PATH="${HOME}/.jbang/bin:${PATH}"' >> "${HOME}/.bashrc"
+        jbang trust add https://github.com/apache/camel
+        jbang app install camel@apache/camel
+        jbang version
+        camel version
   - id: post-start-install-extensions
     exec:
-      label: "Install Apache Camel and Kaoto extensions"
       component: vscode
-      commandLine: >
-        code --install-extension redhat.apache-camel-extension-pack &&
-        code --install-extension redhat.vscode-kaoto
       workingDir: /projects
+      commandLine: |
+        for i in $(seq 1 30); do
+          code --install-extension redhat.apache-camel-extension-pack &&
+          code --install-extension redhat.vscode-kaoto &&
+          exit 0
+          sleep 5
+        done
+        exit 1
+events:
+  postStart:
+    - install-jbang
+    - post-start-install-extensions
  # The autostart does not work when the extensions are to be installed
  # 
  # - id: open-kaoto-route
