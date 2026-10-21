@@ -27,29 +27,6 @@ commands:
         jbang app install camel@apache/camel
         jbang version
         camel version
-  - id: post-start-install-extensions
-    exec:
-      component: vscode
-      workingDir: /projects
-      commandLine: |
-        for i in $(seq 1 30); do
-          code --install-extension redhat.apache-camel-extension-pack &&
-          code --install-extension redhat.vscode-kaoto &&
-          exit 0
-          sleep 5
-        done
-        exit 1
 events:
   postStart:
     - install-jbang
-    - post-start-install-extensions
- # The autostart does not work when the extensions are to be installed
- # 
- # - id: open-kaoto-route
- #   exec:
- #     component: tools
- #     commandLine: "code /projects/sample-camel/simple.camel.yaml"
- #     workingDir: /projects
- #     group:
- #       kind: build
- #       isDefault: true
