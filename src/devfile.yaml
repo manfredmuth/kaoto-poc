@@ -1,0 +1,33 @@
+schemaVersion: 2.2.2
+metadata:
+  name: devspace-developer1
+components:
+  - name: tools
+    container:
+      # This can be replaced with an image which contains jBang see src/README.md
+      image: quay.io/devspaces/udi-rhel9:latest   # base IDE image (includes VS Code/Theia)
+      memoryLimit: 2Gi
+projects:
+  - name: sample-camel
+    git:
+      remotes:
+        origin: "https://github.com/manfredmuth/kaoto-poc.git"
+commands:
+  - id: post-start-install-extensions
+    exec:
+      label: "Install Apache Camel and Kaoto extensions"
+      component: vscode
+      commandLine: >
+        code --install-extension redhat.apache-camel-extension-pack &&
+        code --install-extension redhat.vscode-kaoto
+      workingDir: /projects
+ # The autostart does not work when the extensions are to be installed
+ # 
+ # - id: open-kaoto-route
+ #   exec:
+ #     component: tools
+ #     commandLine: "code /projects/sample-camel/simple.camel.yaml"
+ #     workingDir: /projects
+ #     group:
+ #       kind: build
+ #       isDefault: true

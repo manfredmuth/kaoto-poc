@@ -29,9 +29,9 @@
       uri: minio:{{minio.bucket.usecase7:usecase7}}
       parameters:
         accessKey: "{{minio.access-key:minioadmin}}"
-        endpoint: "{{minio.endpoint:minio.apps.ocp4.jnyilimb.eu}}"
+        endpoint: "{{minio.endpoint:minio.apps.ocp4.<domain>}}"
         objectName: ""
-        secretKey: "{{minio.secret-key:zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG}}"
+        secretKey: "{{minio.secret-key:zguf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG}}"
         secure: true
       steps:
         - to:
@@ -120,9 +120,9 @@
                         uri: paho-mqtt5:dummy
                         parameters:
                           brokerUrl: "{{broker.url:ssl://amq-ssl-broker-all-0-svc-rte-amq7-broker-cluster\
-                            .apps.ocp4.jnyilimb.eu:443}}"
+                            .apps.ocp4.<domain>:443}}"
                           httpsHostnameVerificationEnabled: false
-                          password: "{{broker.password:P@ssw0rd}}"
+                          password: "{{broker.password:<password>}}"
                           userName: "{{broker.user:csv-to-json-mqtt}}"
                         pattern: InOnly
                   expression:

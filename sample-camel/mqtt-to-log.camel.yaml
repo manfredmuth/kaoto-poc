@@ -99,10 +99,10 @@
       uri: paho-mqtt5
       parameters:
         brokerUrl: "{{broker.url:ssl://amq-ssl-broker-all-0-svc-rte-amq7-broker-cluster\
-          .apps.ocp4.jnyilimb.eu:443}}"
+          .apps.ocp4.<domain>:443}}"
         clientId: mqtt-dbusecase-route
         httpsHostnameVerificationEnabled: false
-        password: "{{broker.password:P@ssw0rd}}"
+        password: "{{broker.password:<password>}}"
         topic: DB/JSON
         userName: "{{broker.user:mqtt-to-log}}"
       steps:
