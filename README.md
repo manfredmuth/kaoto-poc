@@ -46,3 +46,7 @@ Once the extensions are installed you will see those in the sidebar of your IDE
 
 You will also see that 
 ![view in VSCode](./images/view-vscode-git.png)
+
+And jBang is available from the start
+
+![view jBang availability](./images/view_jbang.png)

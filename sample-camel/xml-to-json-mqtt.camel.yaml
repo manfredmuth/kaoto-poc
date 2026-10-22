@@ -29,7 +29,7 @@
       uri: minio:{{minio.bucket.usecase5:usecase5}}
       parameters:
         accessKey: "{{minio.access-key:minioadmin}}"
-        endpoint: "{{minio.endpoint:minio.apps.ocp4.jnyilimb.eu}}"
+        endpoint: "{{minio.endpoint:minio.apps.ocp4.<domain>}}"
         objectName: ""
         secretKey: "{{minio.secret-key:zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG}}"
         secure: true
@@ -96,9 +96,9 @@
                   uri: paho-mqtt5:SMRS/RETURN/CREJOB/BoostLocker
                   parameters:
                     brokerUrl: "{{broker.url:ssl://amq-ssl-broker-all-0-svc-rte-amq7-broker-cluster\
-                      .apps.ocp4.jnyilimb.eu:443}}"
+                      .apps.ocp4.<domain>:443}}"
                     httpsHostnameVerificationEnabled: false
-                    password: "{{broker.password:P@ssw0rd}}"
+                    password: "{{broker.password:<password>}}"
                     userName: "{{broker.user:xml-to-json-mqtt}}"
                   pattern: InOnly
             doCatch:
